@@ -1,0 +1,7 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: deploy from git
+      git:
+        repo: https://github.com/muthuramalingam1387/hello-world.git
+        dest: /var/www/html/

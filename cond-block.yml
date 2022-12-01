@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - block:
+        - name: Install apache
+          apt:
+            name: apache2
+            state: present
+
+        - name: Start Apache
+          service:
+            name: apache2
+            state: started
+      when: ansible_os_family == "Debian"
+
+    - block:
+        - name: Start Centos
+          yum:
+            name: httpd
+            state: present
+
+        - name: Start Centos
+          service:
+            name: httpd
+            state: started
+      when: ansible_os_family == "RedHat"

@@ -1,0 +1,7 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: Deploy web01
+      copy:
+        src: index.html
+        dest: /var/www/html/

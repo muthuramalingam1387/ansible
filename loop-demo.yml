@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: loop-demo
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - tree
+        - apache2
+        - nano
